@@ -1,0 +1,52 @@
+아두이노 코드
+void setup() {
+  Serial.begin(9600);
+  pinMode(7, OUTPUT) ;
+}
+void loop() {
+  if(Serial.available()){
+    char a = Serial.read();
+    Serial.println(a);
+    if(a=='9') digitalWrite(7, HIGH);
+    if(a=='0') digitalWrite(7, LOW);
+    if(a=='1'){
+      tone(4, 523, 500); 
+      delay(500);
+      tone(4, 587, 500); 
+      delay(500);
+      tone(4, 987, 500);
+      delay(500);
+      tone(4, 523, 500);
+      delay(500);
+    }
+  }
+}
+
+프로세싱 코드
+import processing.serial.*;
+import processing.net.*;
+Serial p;
+Server s;
+Client c;
+void setup() {
+  s = new Server(this, 12345);
+  p = new Serial(this, "COM4", 9600);
+}
+void draw() {
+  c = s.available();
+  if (c != null) {
+    String m = c.readString();
+    m = m.substring(m.length() - 1);
+    if (isValidInput(m)) {
+      m = "1";
+    }
+    p.write(m);
+    if (m.equals("1")) {
+      p.write(1);
+    }
+  }
+}
+boolean isValidInput(String input) {
+  int num = int(input);
+  return (num >= 1 && num <= 8);
+}
