@@ -39,7 +39,4 @@ void draw(){
   }
 }
 
-![스크린샷 2023-10-05 220953](https://github.com/asudhgjhasfklj/Arduino2/assets/127822717/27e13b8a-680d-47ab-95b5-5cfe8ab8f145)
-
-
 아두이노의 11번 핀과 GND핀을 연결시키지않으면 0이 보내져 화면이 파란색으로 변하고 두 핀을 연결시키면 1이 보내져 화면이 빨간색으로 변한다. 
