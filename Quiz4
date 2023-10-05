@@ -1,0 +1,42 @@
+아두이노 코드
+void setup() {
+  pinMode(11, INPUT_PULLUP);
+  Serial.begin(9600);
+}
+void loop() {
+  int a = digitalRead(11);
+  Serial.println(a);
+  delay(500);
+}
+
+프로세싱 코드
+import processing.serial.*;
+import processing.net.*;
+Serial p;
+Server s;
+Client c;
+void setup(){
+  p = new Serial(this, "COM4", 9600);
+  s = new Server(this, 12345);
+}
+String m="";
+void draw(){
+  if(p.available()>0){
+    m = p.readStringUntil('\n');
+    if(m!=null){
+      print(m);
+    }
+  }
+  c = s.available();
+  if(c!=null){
+    String w = c.readString();
+    println(w);
+    if (w.indexOf("GET")==0) { 
+      c.write("HTTP/1.1 200 OK\r\n\r\n\r\n"); 
+      c.write(m);
+    }
+    c.stop();
+  }
+}
+
+아두이노의 11번 핀과 GND핀을 연결시키지않으면 0이 보내져 화면이 파란색으로 변하고 두 핀을 연결시키면 1이 보내져 화면이 빨간색으로 변한다. 
