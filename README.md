@@ -6,6 +6,6 @@
 
 # Quiz5
 
-![스크린샷 2023-10-05 212603](https://github.com/asudhgjhasfklj/Arduino2/assets/127822717/ec4326e8-5124-4708-ab7a-57225b423810)
+![스크린샷 2023-10-05 212603](https://github.com/asudhgjhasfklj/Arduino2/assets/127822717/3d084408-18af-4538-aaa5-878f58a767f3)
 
 ![스크린샷 2023-10-05 212610](https://github.com/asudhgjhasfklj/Arduino2/assets/127822717/5f0cf9ff-6ef2-4417-904b-530e7bcb66a3)
